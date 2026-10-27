@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  /* Design tokens — warm off-white, soft glows, coral highlight (inspired by reference, not copied) */
+  --color-cream: #f5f1e8;
+  --color-ink: #1b1917;
+  --color-muted: #55504a;
+  --color-coral: #ef7d5e;
+  --color-coral-soft: #f4a58e;
+  --color-lavender: #ddd8f3;
+  --color-mint: #d6efdb;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+}
+
+::selection {
+  background: var(--color-coral-soft);
+  color: var(--color-ink);
+}

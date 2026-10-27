@@ -1,0 +1,46 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import MetaTags from '@layouts/MetaTags.astro';
+
+import '@styles/typography.scss';
+import '@styles/global.scss';
+import '@styles/colors.scss';
+import '@styles/media-queries.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  customSchemaJson?: any;
+  preloadBodyFont?: boolean;
+  breadcrumbs?: Array<{
+    name: string;
+    item: string;
+  }>;
+}
+
+const { preloadBodyFont = true } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <ClientRouter />
+    <MetaTags {...Astro.props} />
+    <slot name="head" />
+    {
+      preloadBodyFont && (
+        <link
+          href="/fonts/Hubot-Sans/WOFF2/HubotSans-Regular.woff2"
+          as="font"
+          rel="preload"
+          type="font/woff2"
+          crossorigin="anonymous"
+        />
+      )
+    }
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

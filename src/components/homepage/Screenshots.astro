@@ -1,0 +1,109 @@
+---
+const screenshots = [
+  'https://pixelflare.cc/alicia/web-check/wc-ssl',
+  'https://pixelflare.cc/alicia/web-check/wc-dns',
+  'https://pixelflare.cc/alicia/web-check/wc-cookies',
+  'https://pixelflare.cc/alicia/web-check/wc-robots',
+  'https://pixelflare.cc/alicia/web-check/wc-headers',
+  'https://pixelflare.cc/alicia/web-check/wc-quality',
+  'https://pixelflare.cc/alicia/web-check/wc-location',
+  'https://pixelflare.cc/alicia/web-check/wc-hosts',
+  'https://pixelflare.cc/alicia/web-check/wc-redirects',
+  'https://pixelflare.cc/alicia/web-check/wc-txt-records',
+  'https://pixelflare.cc/alicia/web-check/wc-status',
+  'https://pixelflare.cc/alicia/web-check/wc-ports',
+  'https://pixelflare.cc/alicia/web-check/wc-trace-route',
+  'https://pixelflare.cc/alicia/web-check/wc-carbon',
+  'https://pixelflare.cc/alicia/web-check/wc-server',
+  'https://pixelflare.cc/alicia/web-check/wc-domain',
+  'https://pixelflare.cc/alicia/web-check/wc-domain',
+  'https://pixelflare.cc/alicia/web-check/wc-dnssec',
+  'https://pixelflare.cc/alicia/web-check/wc-features',
+  'https://pixelflare.cc/alicia/web-check/wc-hsts',
+  'https://pixelflare.cc/alicia/web-check/wc-dns-servers',
+  'https://pixelflare.cc/alicia/web-check/wc-tech',
+  'https://pixelflare.cc/alicia/web-check/wc-pages',
+  'https://pixelflare.cc/alicia/web-check/wc-securitytxt',
+  'https://pixelflare.cc/alicia/web-check/wc-links',
+  'https://pixelflare.cc/alicia/web-check/wc-social',
+  'https://pixelflare.cc/alicia/web-check/wc-email',
+  'https://pixelflare.cc/alicia/web-check/wc-firewall',
+  'https://pixelflare.cc/alicia/web-check/wc-http',
+  'https://pixelflare.cc/alicia/web-check/wc-history',
+  'https://pixelflare.cc/alicia/web-check/wc-rank',
+  'https://pixelflare.cc/alicia/web-check/wc-blocks',
+  'https://pixelflare.cc/alicia/web-check/wc-threats',
+  'https://pixelflare.cc/alicia/web-check/wc-tls-cipher',
+  'https://pixelflare.cc/alicia/web-check/wc-tls-sec',
+  'https://pixelflare.cc/alicia/web-check/wc-tls-handshake',
+  'https://pixelflare.cc/alicia/web-check/wc-screenshot',
+];
+---
+
+<div class="container">
+  <div class="column">
+    {
+      screenshots
+        .slice(0, 20)
+        .map((src, idx) => <img src={src} class="screenshot" alt={`Screenshot ${idx}`} />)
+    }
+  </div>
+  <div class="column">
+    {
+      screenshots
+        .slice(20)
+        .map((src, idx) => <img src={src} class="screenshot" alt={`Screenshot ${idx + 20}`} />)
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@styles/global.scss' as *;
+
+  .container {
+    display: flex;
+    height: 95vh;
+    overflow: hidden;
+    width: 33vw;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    z-index: 2;
+    @include desktop-down {
+      display: none;
+    }
+  }
+
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    animation: scroll 24s linear infinite;
+    &:nth-child(2) {
+      animation: scroll 16s linear infinite;
+    }
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .screenshot {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    filter: contrast(120%) grayscale(50%) hue-rotate(-20deg);
+    clip-path: inset(0.5rem);
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+</style>
