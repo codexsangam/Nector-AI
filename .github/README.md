@@ -53,7 +53,7 @@ Use the runtime and dependencies specified by this project's package/configurati
 
 1. Clone this repository.
    ```bash
-   git clone <YOUR_REPOSITORY_URL>
+   git clone https://github.com/codexsangam/Nector-AI.git
    ```
 2. Change into the project directory.
    ```bash
